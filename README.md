@@ -6,6 +6,9 @@ Requeried: PHP 5(+GD2) + Apache.
 	# cp -R www/* -> /var/www/crychat/*
 	# chmod 777 -R /var/www/crychat/
 
+# directory with session files:
+
+	# chown www-data:www-data /var/lib/php5
 
 # Checker
 

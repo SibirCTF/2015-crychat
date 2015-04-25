@@ -9,7 +9,7 @@
 	}
 
 	session_start();
-	
+
 	if (isset($_GET['username'])) {
 		$username = htmlspecialchars($_GET['username']);
 	} else {
@@ -24,6 +24,10 @@
 		$_SESSION['chat'] = array();
 		$_SESSION['chat'][date('Y-m-d H:i:s')] = 'chat started';
 		session_commit();
+		
+		$f = fopen("logger.log",'ab');
+		fwrite($f,"\n chat ".session_id());
+		fclose($f);
 	}
 
 	function getParam($name) {
@@ -38,6 +42,11 @@
 		$action = getParam('action');
 		if ($action == 'newchat') {
 			session_regenerate_id(true);
+			
+			$f = fopen("logger.log",'ab');
+			fwrite($f,"\n newchat ".session_id());
+			fclose($f);
+			
 			$result = array(
 				'result' => 'ok',
 				'data' => array(),
@@ -50,6 +59,10 @@
 			echo json_encode($result);
 			exit;
 		} else if($action == 'addmsg') {
+			$f = fopen("logger.log",'ab');
+			fwrite($f,"\n add msg ".session_id());
+			fclose($f);
+			
 			$result = array(
 				'result' => 'fail',
 				'data' => array(),
@@ -63,10 +76,15 @@
 			echo json_encode($result);
 			exit;
 		} else if ($action == 'clear') {
+			$f = fopen("logger.log",'ab');
+			fwrite($f,"\n clear ".session_id());
+			fclose($f);
+			
 			$result = array(
 				'result' => 'ok',
 				'data' => array(),
 			);
+	
 			$_SESSION['chat'] = array();
 			$_SESSION['chat'][date('Y-m-d H:i:s')] = 'chat clean';
 			session_commit();
