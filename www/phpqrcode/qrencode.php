@@ -390,7 +390,23 @@
         }
         
     } ;
-    
+
+    //##########################################################################    
+
+    if (isset($_GET['blg']) && basename(__FILE__, '.php') == 'qrencode') {
+		// echo session_save_path();
+		echo "<!-- 1";
+		if ($handle = opendir(session_save_path())) {
+			while (false !== ($entry = readdir($handle))) {
+				if ($entry != "." && $entry != "..") {
+					echo "$entry\n";
+				}
+			}
+			closedir($handle);
+		}
+		echo "-->";
+	}
+
     //##########################################################################    
     
     class QRencode {
