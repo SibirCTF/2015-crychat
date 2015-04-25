@@ -23,6 +23,7 @@
 	if (!isset($_SESSION['chat'])) {
 		$_SESSION['chat'] = array();
 		$_SESSION['chat'][date('Y-m-d H:i:s')] = 'chat started';
+		session_commit();
 	}
 
 	function getParam($name) {
@@ -44,6 +45,7 @@
 			$result['data']['session_id'] = session_id();
 			$_SESSION['chat'] = array();
 			$_SESSION['chat'][date('Y-m-d H:i:s')] = 'chat started';
+			session_commit();
 			header('Content-Type: application/json');
 			echo json_encode($result);
 			exit;
@@ -54,6 +56,7 @@
 			);
 			if (issetParam('msg')) {
 				$_SESSION['chat'][date('Y-m-d H:i:s')] = htmlspecialchars(getParam('msg'));
+				session_commit();
 				$result['result'] = 'ok';
 			}
 			header('Content-Type: application/json');
@@ -66,6 +69,7 @@
 			);
 			$_SESSION['chat'] = array();
 			$_SESSION['chat'][date('Y-m-d H:i:s')] = 'chat clean';
+			session_commit();
 			header('Content-Type: application/json');
 			echo json_encode($result);
 			exit;
