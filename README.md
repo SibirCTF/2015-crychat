@@ -9,8 +9,8 @@ Requeried: PHP 5(+GD2) + Apache.
 Files:
 
 	# mkdir /var/www/crychat
-	# cp -R www/* /var/www/crychat/*
-	# chmod 777 -R /var/www/crychat/
+	# cp -R www/* /var/www/html/crychat/*
+	# chmod 777 -R /var/www/html/crychat/
 
 # directory with session files:
 
@@ -19,6 +19,10 @@ Files:
 # Checker
 
 checker-crychat.sh
+
+# url
+    
+    # http://host/crychat
 
 # Checker input params
 
