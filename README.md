@@ -1,9 +1,14 @@
 # CryChat ( == Crypto Chat)
 
+
+
 Requeried: PHP 5(+GD2) + Apache.
+    apt-get install apache2 php5 php5-gd curl
+
+Files:
 
 	# mkdir /var/www/crychat
-	# cp -R www/* -> /var/www/crychat/*
+	# cp -R www/* /var/www/crychat/*
 	# chmod 777 -R /var/www/crychat/
 
 # directory with session files:
