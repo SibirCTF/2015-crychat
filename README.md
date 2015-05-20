@@ -3,7 +3,8 @@
 
 
 Requeried: PHP 5(+GD2) + Apache.
-    apt-get install apache2 php5 php5-gd curl
+
+    # apt-get install apache2 php5 php5-gd curl
 
 Files:
 
