@@ -1,5 +1,6 @@
 # CryChat ( == Crypto Chat)
 
+Автор: Евгений Сопов
 
 
 Requeried: PHP 5(+GD2) + Apache.
