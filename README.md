@@ -9,7 +9,7 @@ Requeried: PHP 5(+GD2) + Apache.
 
 Files:
 
-	# mkdir /var/www/crychat
+	# mkdir /var/www/html/crychat
 	# cp -R www/* /var/www/html/crychat/*
 	# chmod 777 -R /var/www/html/crychat/
 
